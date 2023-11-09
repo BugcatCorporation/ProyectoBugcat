@@ -1,10 +1,12 @@
 package com.example.proyectobugcat
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.proyectobugcat.SQLite.BDHelper
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,9 +16,11 @@ class LoginActivity : AppCompatActivity() {
         val inputUsuario: EditText = findViewById(R.id.txtUsuariol)
         val inputcontra: EditText = findViewById(R.id.txtContrasenial)
         val btnLogin: Button = findViewById(R.id.Login_btnAcceder)
+
         btnLogin.setOnClickListener{
             val usuario = inputUsuario.text.toString()
             val contra = inputcontra.text.toString()
+
             val bd = BDHelper(this,null)
             val cursor = bd.Acceder(usuario, contra)
             if(cursor == null) {
@@ -25,6 +29,8 @@ class LoginActivity : AppCompatActivity() {
                 cursor!!.moveToFirst()
                 val usuarindex = cursor.getColumnIndex("USUARIO")
                 val usuario = cursor.getString(usuarindex)
+                val productScreen = Intent(this, ProductosActivity::class.java)
+                startActivity(productScreen)
             }
         }
     }

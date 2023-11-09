@@ -19,8 +19,8 @@ class PantallaPrincipal : AppCompatActivity() {
 
 
         btnAcceder.setOnClickListener{
-            var productScreen = Intent(this, ProductosActivity::class.java)
-            startActivity(productScreen)
+            var loginScreen = Intent(this, LoginActivity::class.java)
+            startActivity(loginScreen)
         }
 
         btnSalir.setOnClickListener{

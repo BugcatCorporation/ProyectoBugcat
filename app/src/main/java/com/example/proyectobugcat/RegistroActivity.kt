@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.proyectobugcat.SQLite.BDHelper
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +26,6 @@ class RegistroActivity : AppCompatActivity() {
             inputCorreo.text.clear()
             inputUsuario.text.clear()
             inputContra.text.clear()
-
-
         }
 
         val btnVer : Button = findViewById(R.id.btnver)

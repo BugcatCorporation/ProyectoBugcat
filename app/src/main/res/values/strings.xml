@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ProyectoBugcat</string>
+    <string name="titulo_app">Cappo Bugcat Store</string>
+    <string name="subtitle_app">Encuentre sus productos que desee</string>
+    <string name="btn_ingr">Ingresar</string>
+    <string name="btn_exit">Salir</string>
+
+    <string name="btn_limpiar">Limpiar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_ok">Ok</string>
+
+</resources>

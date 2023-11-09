@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectoBugcat</string>
+    <string name="titulo_app">Cappo Bugcat Store(USA)</string>
+    <string name="subtitle_app">Find some products</string>
+    <string name="btn_ingr">Access</string>
+    <string name="btn_exit">Exit</string>
+
+    <string name="btn_limpiar">Clear</string>
+    <string name="btn_cancelar">Cancel</string>
+    <string name="btn_ok">Ok</string>
+</resources>

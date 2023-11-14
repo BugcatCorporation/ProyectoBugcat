@@ -13,6 +13,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val loginActivity = findViewById<Button>(R.id.btnEmpleado);
+        loginActivity.setOnClickListener {
+            var loginEmpleadoScreen = Intent(this, loginEmpleado::class.java)
+            startActivity(loginEmpleadoScreen)
+        }
+
         val inputUsuario: EditText = findViewById(R.id.txtUsuariol)
         val inputcontra: EditText = findViewById(R.id.txtContrasenial)
         val btnLogin: Button = findViewById(R.id.Login_btnAcceder)

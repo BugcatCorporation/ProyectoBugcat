@@ -5,31 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".loginEmpleado">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="27dp"
+        android:textSize="30dp"
         android:gravity="center"
         android:textColor="@color/material_dynamic_primary70"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:text="Acceso" />
-
+        android:text="Acceso de Empleado" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingrese su usuario" />
+        android:gravity="center"
+        android:text="usuario de empleado" />
 
     <EditText
-        android:id="@+id/txtUsuariol"
+        android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_margin="10dp"
         android:inputType="text"
         android:text="" />
 
@@ -37,18 +38,20 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Ingrese su contraseña" />
 
     <EditText
-        android:id="@+id/txtContrasenial"
+        android:id="@+id/txtContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
         android:inputType="text"
         android:text="" />
 
     <Button
-        android:id="@+id/Login_btnAcceder"
+        android:id="@+id/btnAccederEmpleado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -61,22 +64,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Volver" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SI ERES EMPLEADO INGRESA POR AQUI"
-        android:layout_margin="20dp"
-        >
-    </TextView>
-
-    <Button
-        android:id="@+id/btnEmpleado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Empleado" />
 
 
 </LinearLayout>

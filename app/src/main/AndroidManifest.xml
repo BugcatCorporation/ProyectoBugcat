@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ProyectoBugcat"
         tools:targetApi="31">
         <activity
+            android:name=".loginEmpleado"
+            android:exported="false" />
+        <activity
             android:name=".MantProductoActivity"
             android:exported="false" />
         <activity

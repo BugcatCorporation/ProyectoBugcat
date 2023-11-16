@@ -16,8 +16,6 @@ class PantallaPrincipal : AppCompatActivity() {
 
         val btnRegistrar : Button = findViewById(R.id.btnRegistrar);
 
-
-
         btnAcceder.setOnClickListener{
             var loginScreen = Intent(this, LoginActivity::class.java)
             startActivity(loginScreen)

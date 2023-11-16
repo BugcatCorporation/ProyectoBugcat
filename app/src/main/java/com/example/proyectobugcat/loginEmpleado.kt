@@ -14,8 +14,14 @@ class loginEmpleado : AppCompatActivity() {
 
         val MantenimientoActivity = findViewById<Button>(R.id.btnAccederEmpleado);
         MantenimientoActivity.setOnClickListener {
-            var MantenimientoActivityScreen = Intent(this, MantenimientoActivity::class.java)
-            startActivity(MantenimientoActivityScreen)
+            var MantenimientoActivityScreem = Intent(this, MantenimientoActivity::class.java)
+            startActivity(MantenimientoActivityScreem)
+        }
+
+        val Empleado = findViewById<Button>(R.id.btnRegistrarEmpleado);
+                 Empleado.setOnClickListener {
+            var RegistroEmpleadoScreem = Intent(this, RegistroEmpleado::class.java)
+            startActivity(RegistroEmpleadoScreem)
         }
 
         val inputUsuarioEmpleado: EditText = findViewById(R.id.txtUsuario)

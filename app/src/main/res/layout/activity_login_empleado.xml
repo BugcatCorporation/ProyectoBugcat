@@ -56,14 +56,29 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/light_blue"
+        android:layout_marginTop="10dp"
         android:text="Acceder" />
+
+    <Button
+        android:id="@+id/btnRegistrarEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_blue"
+        android:text="Registrar Empleado" />
+
+
     <Button
         android:id="@+id/btnAtras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:text="Volver" />
+
 
 
 </LinearLayout>

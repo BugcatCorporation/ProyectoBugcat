@@ -19,7 +19,7 @@ class loginEmpleado : AppCompatActivity() {
         }
 
         val Empleado = findViewById<Button>(R.id.btnRegistrarEmpleado);
-                 Empleado.setOnClickListener {
+         Empleado.setOnClickListener {
             var RegistroEmpleadoScreem = Intent(this, RegistroEmpleado::class.java)
             startActivity(RegistroEmpleadoScreem)
         }
@@ -27,6 +27,13 @@ class loginEmpleado : AppCompatActivity() {
         val inputUsuarioEmpleado: EditText = findViewById(R.id.txtUsuario)
         val inputcontraEmpleado: EditText = findViewById(R.id.txtContrasena)
 
+
+        val btnAtras: Button = findViewById(R.id.btnAtras)
+        btnAtras.setOnClickListener {
+            val loginPantalla = Intent(this, LoginActivity::class.java)
+            startActivity(loginPantalla)
         }
+
     }
+}
 

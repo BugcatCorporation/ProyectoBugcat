@@ -39,5 +39,11 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(productScreen)
             }
         }
+
+        val btnAtras: Button = findViewById(R.id.btnAtras)
+        btnAtras.setOnClickListener{
+            val pantallaPrincipal = Intent(this, PantallaPrincipal::class.java)
+            startActivity(pantallaPrincipal)
+        }
     }
 }

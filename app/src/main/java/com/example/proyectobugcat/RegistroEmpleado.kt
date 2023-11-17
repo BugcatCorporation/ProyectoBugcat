@@ -23,13 +23,24 @@ class RegistroEmpleado : AppCompatActivity() {
             val correo = inputCorreoEmpleado.text.toString()
             val contra = inputContra.text.toString()
 
-            val db = BDHelper(this,null)
-            db.CrearRegistro(correo,usuarioEmpleado,contra)
-            Toast.makeText(this,"Se registro el Empleado correctamente",Toast.LENGTH_LONG)
-            inputEmpleado.text.clear()
-            inputCorreoEmpleado.text.clear()
-            inputContra.text.clear()
+            if(validarCampos(correo, usuarioEmpleado ,contra)){
+                val db = BDHelper(this,null)
+                db.CrearRegistro(correo,usuarioEmpleado,contra)
+                Toast.makeText(this,"Se registro el Empleado correctamente",Toast.LENGTH_LONG)
+                inputEmpleado.text.clear()
+                inputCorreoEmpleado.text.clear()
+                inputContra.text.clear()
+            }
+
         }
 
+    }
+
+    private fun validarCampos(correo: String, usuario: String, contra: String): Boolean {
+        if(correo.isEmpty() || usuario.isEmpty() || contra.isEmpty()) {
+            Toast.makeText(this,"Por favor, rellena todos los campos", Toast.LENGTH_LONG).show()
+            return false
+        }
+        return true
     }
 }

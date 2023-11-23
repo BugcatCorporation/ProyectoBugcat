@@ -1,4 +1,4 @@
-package com.example.proyectobugcat
+/*package com.example.proyectobugcat
 
 import android.app.Dialog
 import android.content.Intent
@@ -16,7 +16,7 @@ import com.example.proyectobugcat.SQLite.CustomAdapter
 import com.example.proyectobugcat.SQLite.ItemViewModel
 
 class MantProductoActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mant_producto)
 
@@ -34,7 +34,7 @@ class MantProductoActivity : AppCompatActivity() {
         val data = ArrayList<ItemViewModel>()
         //Aqui tambien podriamos obtener informacion de alguna fuente para llenar Data(bd, ServWeb ,etc)
         for (i in 1 .. 20){
-            data.add(ItemViewModel(R.drawable.ic_launcher_background,"Producto Nro"+i,"Descripcion"))
+            data.add(ItemViewModel(R.drawable.ic_launcher_background,"Producto Nro"+i,"Descripcion","Precio"))
         }
         val adapter = CustomAdapter(data)
         productosRecycler.adapter = adapter
@@ -68,4 +68,4 @@ class MantProductoActivity : AppCompatActivity() {
         }
         dialogConfirm.show()
     }
-}
+}*/

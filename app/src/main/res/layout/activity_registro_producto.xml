@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".RegistroProducto">
+
+    <ImageView
+        android:id="@+id/imageViewProducto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/default_product_image"
+        android:scaleType="centerCrop"
+        android:contentDescription="Imagen del Producto"/>
+
+    <Button
+        android:id="@+id/btnCargarImagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cargar Imagen"/>
+
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Producto"/>
+
+    <EditText
+        android:id="@+id/editTextPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Precio"/>
+
+    <EditText
+        android:id="@+id/editTextDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:hint="Descripción"/>
+
+    <Button
+        android:id="@+id/btnRegistrarproducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Producto"/>
+
+</LinearLayout>

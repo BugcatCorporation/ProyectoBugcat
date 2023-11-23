@@ -51,6 +51,12 @@ android {
 
 dependencies {
 
+  // Imagenes
+    implementation ("com.github.bumptech.glide:glide:4.12.0") // o la última versión disponible
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+
+
     // Gif
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.25")
     // Fin DE Gif

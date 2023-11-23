@@ -10,41 +10,44 @@
         android:layout_width="match_parent"
         android:padding="5dp"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/img_producto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/bugcat"
-            >
-        </ImageView>
+            android:layout_width="115dp"
+            android:layout_height="105dp"></ImageView>
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/img_producto"
-            android:layout_alignBottom="@+id/img_producto"
-            android:layout_toEndOf="@+id/img_producto"
+            android:layout_width="227dp"
+            android:layout_height="97dp"
+            android:layout_marginStart="30dp"
             android:layout_marginLeft="10dp"
-            android:orientation="vertical"
+            android:layout_toEndOf="@+id/img_producto"
             android:gravity="center"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/nombre_producto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre del Producto"
-                android:textStyle="bold"
-                android:textSize="20dp"
                 android:fontFamily="sans-serif-thin"
-                >
-            </TextView>
+                android:text="Nombre del Producto"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
 
             <TextView
                 android:id="@+id/descripcion_producto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                >
-            </TextView>
+                android:textSize="15dp"></TextView>
+
+            <TextView
+                android:id="@+id/precio_producto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: S/XX.XX"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
 
         </LinearLayout>
 

@@ -37,13 +37,7 @@ class ProductosActivity : AppCompatActivity() {
         val productosRecycler : RecyclerView = findViewById(R.id.lista_productos)
         productosRecycler.layoutManager = LinearLayoutManager(this)
 
-        val data = ArrayList<ItemViewModel>()
-        //Aqui tambien podriamos obtener informacion de alguna fuente para llenar Data(bd, ServWeb ,etc)
-        for (i in 1 .. 20){
-            data.add(ItemViewModel(R.drawable.ic_launcher_background,"Producto Nro"+i,"Descripcion"))
-        }
-        val adapter = CustomAdapter(data)
-        productosRecycler.adapter = adapter
+
 
     }
 

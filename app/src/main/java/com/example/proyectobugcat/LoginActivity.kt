@@ -45,5 +45,10 @@ class LoginActivity : AppCompatActivity() {
             val pantallaPrincipal = Intent(this, PantallaPrincipal::class.java)
             startActivity(pantallaPrincipal)
         }
+        val btnMantenimiento: Button = findViewById(R.id.btnMantenimiento)
+        btnMantenimiento.setOnClickListener {
+            val mantenimientoScreen = Intent(this, MantenimientoActivity::class.java)
+            startActivity(mantenimientoScreen)
+        }
     }
 }

@@ -11,17 +11,19 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
+
 class MantenimientoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento)
 
-        val btnMantProductos =findViewById<Button>(R.id.mant_btnListProducto)
-        val btnMantCategorias =findViewById<Button>(R.id.mant_btnListProducto)
+        val btnMantProductos =findViewById<Button>(R.id.mant_btnListarProducto)
+        val btnRegProductos =findViewById<Button>(R.id.mant_btnregistroproducto)
+
         val btnCerrarSesion = findViewById<Button>(R.id.mant_btnCerrarSesion)
 
         btnMantProductos.setOnClickListener{
-            var MantProductosScreen = Intent(this, MantProductoActivity::class.java)
+            var MantProductosScreen = Intent(this, ListadoProducto::class.java)
             startActivity(MantProductosScreen)
         }
 
@@ -31,6 +33,10 @@ class MantenimientoActivity : AppCompatActivity() {
             showModalConfirmExit(titleMsg,bodyMsg);
         }
 
+        btnRegProductos.setOnClickListener{
+            var RegProdcutoScreen = Intent(this,RegistroProducto::class.java)
+            startActivity(RegProdcutoScreen)
+        }
 
 
 

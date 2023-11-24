@@ -19,8 +19,8 @@ class MantenimientoActivity : AppCompatActivity() {
 
         val btnMantProductos =findViewById<Button>(R.id.mant_btnListarProducto)
         val btnRegProductos =findViewById<Button>(R.id.mant_btnregistroproducto)
-
-        val btnCerrarSesion = findViewById<Button>(R.id.mant_btnCerrarSesion)
+        val btnRegEmplado = findViewById<Button>(R.id.mant_btnregistroEmpleado)
+        val btnCerrarSesion = findViewById<Button>(R.id.mante_btnCerrarSesion)
 
         btnMantProductos.setOnClickListener{
             var MantProductosScreen = Intent(this, ListadoProducto::class.java)
@@ -36,6 +36,11 @@ class MantenimientoActivity : AppCompatActivity() {
         btnRegProductos.setOnClickListener{
             var RegProdcutoScreen = Intent(this,RegistroProducto::class.java)
             startActivity(RegProdcutoScreen)
+        }
+
+        btnRegEmplado.setOnClickListener{
+            var MantEmpleadosScreen = Intent(this, RegistroEmpleado::class.java)
+            startActivity(MantEmpleadosScreen)
         }
 
 

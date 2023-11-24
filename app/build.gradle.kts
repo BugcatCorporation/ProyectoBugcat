@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.proyectobugcat"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.proyectobugcat"
@@ -51,15 +52,26 @@ android {
 
 dependencies {
 
-  // Imagenes
+    // Imagenes
     implementation ("com.github.bumptech.glide:glide:4.12.0") // o la última versión disponible
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
-
-
-    // Gif
+    //Dependencia de firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+    //Firebase auth
+    implementation("com.google.firebase:firebase-auth:22.2.0")
+    //Firestore (BD)
+    implementation("com.google.firebase:firebase-firestore")
+    //Fragment (dios que dolor estas cosas)
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    //Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
+    //Para gif
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.25")
-    // Fin DE Gif
+    //Para animaciones
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.7.2")

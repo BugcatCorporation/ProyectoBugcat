@@ -11,12 +11,12 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="27dp"
-        android:gravity="center"
-        android:textColor="@color/material_dynamic_primary70"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:text="Acceso" />
+        android:gravity="center"
+        android:text="Acceso"
+        android:textColor="@color/material_dynamic_primary70"
+        android:textSize="27dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/light_blue"
+        android:onClick="login"
         android:text="Acceder" />
 
     <Button
@@ -68,14 +69,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/light_blue"
-     android:text="Mantenimiento" />
+        android:text="Mantenimiento" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SI ERES EMPLEADO INGRESA POR AQUÍ"
-        android:layout_margin="20dp">
-    </TextView>
+        android:layout_margin="20dp"
+        android:text="SI ERES EMPLEADO INGRESA POR AQUÍ"></TextView>
 
     <Button
         android:id="@+id/btnEmpleado"

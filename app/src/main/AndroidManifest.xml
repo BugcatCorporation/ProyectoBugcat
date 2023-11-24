@@ -23,9 +23,6 @@
             android:name=".RegistroEmpleado"
             android:exported="false" />
         <activity
-            android:name=".loginEmpleado"
-            android:exported="false" />
-        <activity
             android:name=".ListadoProducto"
             android:exported="false" />
         <activity

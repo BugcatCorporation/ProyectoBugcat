@@ -12,7 +12,7 @@
         android:id="@+id/imageViewProducto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/default_product_image"
+        android:src="@drawable/bugcat01"
         android:scaleType="centerCrop"
         android:contentDescription="Imagen del Producto"/>
 

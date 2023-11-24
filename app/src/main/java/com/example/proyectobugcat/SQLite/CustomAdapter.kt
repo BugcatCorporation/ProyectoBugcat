@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectobugcat.R
-import com.bumptech.glide.Glide
 
 class CustomAdapter (private val  mList: List<ItemViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -32,10 +31,6 @@ class CustomAdapter (private val  mList: List<ItemViewModel>) : RecyclerView.Ada
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemViewModel = mList[position]
 
-        // Utiliza Glide para cargar la imagen desde la ruta directa
-        Glide.with(holder.itemView.context)
-            .load(itemViewModel.image)  // Utiliza la ruta directa, no un URI
-            .into(holder.imageView)
 
         holder.tituloPrincipal.text = itemViewModel.titulo
         holder.descripcion.text = itemViewModel.descripcion

@@ -6,6 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="light_blue">#4EE6EA</color>
+    <color name="celeste_color">#6474a2b2</color>
+    <color name="blanco_color">#FFFFFF</color>
 
     <!-- Colores de Material Design -->
     <color name="seed">#5AC9E8</color>

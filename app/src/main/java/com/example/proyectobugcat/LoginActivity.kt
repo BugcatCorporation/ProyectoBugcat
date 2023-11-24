@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.proyectobugcat.SQLite.BDHelper
 import com.google.android.material.textfield.TextInputLayout
@@ -16,21 +17,25 @@ import com.google.firebase.auth.auth
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var txtEmail: EditText
-    private lateinit var txtPassword: EditText
+    private lateinit var txtCorreo: EditText
+    private lateinit var txtContra: EditText
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        txtEmail = findViewById(R.id.txtUsuariol)
-        txtPassword = findViewById(R.id.txtContrasenial)
+        txtCorreo = findViewById(R.id.txtCorreoLogin)
+        txtContra = findViewById(R.id.txtContrasenaLogin)
         auth = Firebase.auth
     }
+    fun registro(view: View){
+        startActivity(Intent(this,RegistroActivity::class.java))
+    }
+
     fun login(view: View) {
-        val email = txtEmail.text.toString()
-        val password = txtPassword.text.toString()
+        val email = txtCorreo.text.toString()
+        val password = txtContra.text.toString()
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {

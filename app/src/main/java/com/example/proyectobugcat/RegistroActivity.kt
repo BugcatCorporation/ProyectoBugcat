@@ -43,7 +43,7 @@ class RegistroActivity : AppCompatActivity() {
             val indexCorreo = cursor.getColumnIndex("CORREO")
             val correo = cursor!!.getString(indexCorreo)
 
-            Toast.makeText(this, "Ultimo correo registrado es " + correo, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Ultimo correo registrado es" + correo, Toast.LENGTH_SHORT).show()
         }
 
         val btnVolver: Button = findViewById(R.id.btnVolver)
@@ -61,7 +61,7 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this,"El usuario y la contraseña deben tener al menos 5 caracteres", Toast.LENGTH_LONG).show()
             return false
         } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-            Toast.makeText(this,"Por favor, introduce un correo válido", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Por favor, introduce un correo válido ", Toast.LENGTH_LONG).show()
             return false
         }
         return true

@@ -11,31 +11,25 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
-
-class MantenimientoActivity : AppCompatActivity() {
+class CarritoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mantenimiento)
+        setContentView(R.layout.activity_carrito)
 
-        val btnMantProductos =findViewById<Button>(R.id.mant_btnListarProducto)
-        val btnMantEmpleado =findViewById<Button>(R.id.mant_btnListarEmpleado)
-        val btnCerrarSesion = findViewById<Button>(R.id.mante_btnCerrarSesion)
+        val btnComprar: Button = findViewById(R.id.CC_btnComprar)
+        val btnBorrar:Button=findViewById(R.id.CC_btnBorrarTodo)
+        val btnVolver:Button=findViewById(R.id.CC_btnVolver)
 
-        btnMantProductos.setOnClickListener{
-            var MantProductosScreen = Intent(this, MantenimientoProducto::class.java)
-            startActivity(MantProductosScreen)
-        }
-        btnMantEmpleado.setOnClickListener{
-            var MantEmpleadoScreen = Intent(this, MantenimientoEmpleado::class.java)
-            startActivity(MantEmpleadoScreen)
-        }
-
-        btnCerrarSesion.setOnClickListener{
+        btnComprar.setOnClickListener{
             val titleMsg:String = "Confirmacion"
-            val bodyMsg:String = "¿Estas seguro que desea Cerrar Sesion?"
+            val bodyMsg:String = "¿Estas seguro que desea comprar los articulos seleccionados?"
+
             showModalConfirmExit(titleMsg,bodyMsg);
         }
-
+        btnVolver.setOnClickListener{
+            val productosScreen = Intent(this,ProductosActivity::class.java)
+            startActivity(productosScreen)
+        }
     }
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {
         val dialogConfirm = Dialog(this)
@@ -59,7 +53,7 @@ class MantenimientoActivity : AppCompatActivity() {
             startActivity(PantallaScreen)
         }
         btnCancelar.setOnClickListener{
-            Toast.makeText(this,"Accion cancelada", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Accion cancelada", Toast.LENGTH_LONG).show()
             dialogConfirm.dismiss()
         }
         dialogConfirm.show()

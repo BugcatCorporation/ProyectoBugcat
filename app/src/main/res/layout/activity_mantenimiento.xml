@@ -7,12 +7,6 @@
     tools:context=".MantenimientoActivity"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MantenimientoActivity">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,12 +18,15 @@
                 android:layout_margin="15dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/mant_img_usuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@mipmap/bugcat_foreground" />
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="15mm"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="15mm"
+                    android:src="@drawable/bugcat4"
+                    android:layout_gravity="center">
+
+                </pl.droidsonroids.gif.GifImageView>
 
                 <TextView
                     android:id="@+id/mante_txtusuario"
@@ -52,17 +49,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp">
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                >
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:textSize="25dp"
                     android:gravity="center"
-                    android:text="CAPOO BUGCAT MANTENIMIENTO"
+                    android:textColor="@color/material_dynamic_primary70"
+                    android:text="CAPOO BUGCAT STORE " />
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
                     android:textSize="15dp"
-                    tools:ignore="TextSizeCheck" />
+                    android:gravity="center"
+                    android:text="MANTENIMIENTO " />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -103,13 +111,6 @@
                         android:layout_weight="1"
                         android:text="Ver listado" />
 
-                    <Button
-                        android:id="@+id/mant_btnregistroproducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Registro" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -143,14 +144,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Ver listado" />
-
-                    <Button
-                        android:id="@+id/mant_btnregistroCategoria"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Registro" />
-
 
                 </LinearLayout>
 
@@ -193,13 +186,6 @@
                         android:layout_weight="1"
                         android:text="Ver listado" />
 
-                    <Button
-                        android:id="@+id/mant_btnregistroEmpleado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Registro" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -234,13 +220,6 @@
                         android:layout_weight="1"
                         android:text="Ver listado" />
 
-                    <Button
-                        android:id="@+id/mant_btnregistroOtros"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Registro" />
-
 
                 </LinearLayout>
 
@@ -248,7 +227,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+
 
 
 </LinearLayout>

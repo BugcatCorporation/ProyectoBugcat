@@ -21,16 +21,22 @@ class ProductosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
 
-        //Codigo para boton cerrar sesion
-        val btnCerrarSesion:Button = findViewById(R.id.btnCerrarSesion)
 
+        val btnCerrarSesion:Button = findViewById(R.id.btnCerrarSesion)
+        val btnCarrito:Button = findViewById(R.id.btnCarrito)
+
+        btnCarrito.setOnClickListener{
+            val cartScreen = Intent(this,CarritoActivity::class.java)
+            startActivity(cartScreen)
+        }
         btnCerrarSesion.setOnClickListener{
             val titleMsg:String = "Confirmacion"
             val bodyMsg:String = "¿Estas seguro que desea salir de la App?"
 
             showModalConfirmExit(titleMsg,bodyMsg);
         }
-        //FIN
+
+
 
         // INICIO CARGAR PLATOS EN REPEATERVIEW
         //Codigo para cargar productos en ReapeaterView

@@ -57,7 +57,7 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     //Dependencia de firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     //Firebase auth
     implementation("com.google.firebase:firebase-auth:22.2.0")
     //Firestore (BD)

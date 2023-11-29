@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListadoProducto">
+    tools:context=".MantenimientoProducto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +16,15 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/img_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/bugcat_foreground" />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="15mm"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_height="15mm"
+                android:src="@drawable/bugcat4"
+                android:layout_gravity="center">
+
+            </pl.droidsonroids.gif.GifImageView>
 
             <TextView
                 android:id="@+id/mant_txtusuario"
@@ -31,12 +34,13 @@
                 android:text="Bienvenido Usuario" />
 
             <Button
-                android:id="@+id/MP_btnCerrarSesion"
+                android:id="@+id/mante_btnCerrarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Cerrar sesion"
                 android:textSize="10dp"
-                android:text="Cerrar sesion" />
+                tools:ignore="TextSizeCheck" />
 
         </LinearLayout>
         <LinearLayout
@@ -47,33 +51,55 @@
             >
 
             <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:textColor="@color/material_dynamic_primary70"
+                android:text="CAPOO BUGCAT " />
+
+            <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="20dp"
+                android:layout_weight="2"
                 android:gravity="center"
-                android:text="CAPOO BUGCAT STORE" />
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:text="MANTENIMIENTO EMPLEADOS"
                 android:textSize="15dp"
-                android:gravity="center"
-                android:text="Listado de Productos" />
+                tools:ignore="TextSizeCheck" />
+
         </LinearLayout>
 
     </LinearLayout>
-    <Button
-        android:id="@+id/List_btnAtras"
-        android:text="Atras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/mante_btnRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Registrar un empleado">
+        </Button>
+        <Button
+            android:id="@+id/mante_btnAtras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Atras">
+        </Button>
+
+    </LinearLayout>
+
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mant_rvListProductos"
+        android:id="@+id/mante_rvListEmpleado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

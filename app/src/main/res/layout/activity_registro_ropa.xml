@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".RegistroEmpleado">
+    tools:context=".RegistroRopa"
+    android:orientation="vertical">
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:gravity="center"
+        android:gravity="center"
         android:layout_margin="30dp"
         android:textColor="@color/material_dynamic_primary70"
-        android:text="Registro de Empleados"
+        android:text="Registro de Ropas BUGCAT"
         android:textSize="30dp"
         />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_nombres_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingrese su usuario de empleado"
+        android:text="NOMBRE "
         android:gravity="center"
         android:textColor="@color/black"
         />
 
     <EditText
-        android:id="@+id/txtUsuarioEmpleado"
+        android:id="@+id/txt_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -36,17 +37,18 @@
         android:layout_marginLeft="30dp"
         android:inputType="text"
         android:text="" />
+
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingrese su Correo"
+        android:text="TALLA"
         android:gravity="center"
 
         android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/txtCorreoEmpleado"
+        android:id="@+id/txt_talla"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -54,16 +56,17 @@
         android:layout_marginLeft="30dp"
         android:inputType="text"
         android:text="" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="Ingrese su contraseña" />
+        android:text="PRECIO" />
 
     <EditText
-        android:id="@+id/txtContrasenaEmpleado"
+        android:id="@+id/txt_precio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -71,6 +74,44 @@
         android:layout_marginLeft="30dp"
         android:inputType="text"
         android:text="" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="DESCRIPCIÓN" />
+
+    <EditText
+        android:id="@+id/txt_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:inputType="text"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="STOCK" />
+
+    <EditText
+        android:id="@+id/txt_stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:inputType="text"
+        android:text="" />
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -103,5 +144,8 @@
 
 
     </LinearLayout>
+
+
+
 
 </LinearLayout>

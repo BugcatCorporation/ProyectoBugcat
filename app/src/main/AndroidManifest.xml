@@ -15,6 +15,15 @@
         android:theme="@style/Theme.ProyectoBugcat"
         tools:targetApi="31">
         <activity
+            android:name=".RegistroRopa"
+            android:exported="false" />
+        <activity
+            android:name=".MantenimientoOtros"
+            android:exported="false" />
+        <activity
+            android:name=".MantenimientoRopa"
+            android:exported="false" />
+        <activity
             android:name=".MantenimientoEmpleado"
             android:exported="false" />
         <activity

@@ -7,7 +7,6 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.proyectobugcat.SQLite.BDHelper
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,27 +23,11 @@ class RegistroActivity : AppCompatActivity() {
             val contra = inputContra.text.toString()
 
             if(validarCampos(usuario, correo, contra)){
-                val db = BDHelper(this,null)
-                db.CrearRegistro(correo,usuario,contra)
-                Toast.makeText(this,"Se registro el usuario de manera exitosa", Toast.LENGTH_LONG).show()
-                inputCorreo.text.clear()
-                inputUsuario.text.clear()
-                inputContra.text.clear()
             }
 
         }
 
-        val btnVer : Button = findViewById(R.id.btnver)
-        btnVer.setOnClickListener{
-            val db = BDHelper(this,null)
-            val cursor = db.ListarTodosRegistros()
 
-            cursor!!.moveToLast()
-            val indexCorreo = cursor.getColumnIndex("CORREO")
-            val correo = cursor!!.getString(indexCorreo)
-
-            Toast.makeText(this, "Ultimo correo registrado es" + correo, Toast.LENGTH_SHORT).show()
-        }
 
         val btnVolver: Button = findViewById(R.id.btnVolver)
         btnVolver.setOnClickListener{

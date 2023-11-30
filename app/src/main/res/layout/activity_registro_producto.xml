@@ -8,45 +8,106 @@
     android:padding="16dp"
     tools:context=".RegistroProducto">
 
-    <ImageView
-        android:id="@+id/imageViewProducto"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/bugcat01"
-        android:scaleType="centerCrop"
-        android:contentDescription="Imagen del Producto"/>
-
-    <Button
-        android:id="@+id/btnCargarImagen"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cargar Imagen"/>
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-    <EditText
-        android:id="@+id/editTextNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del Producto"/>
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
 
-    <EditText
-        android:id="@+id/editTextPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="Precio"/>
+        <EditText
+            android:id="@+id/txtNombreProd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="23dp"
+            android:hint="Usuario"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imagen"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
 
-    <EditText
-        android:id="@+id/editTextDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:lines="3"
-        android:hint="Descripción"/>
+        <EditText
+            android:id="@+id/txtImagenProd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="link de imagen"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
 
-    <Button
-        android:id="@+id/btnRegistrarproducto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar Producto"/>
+        <EditText
+            android:id="@+id/txt_descripProd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="Descripcion"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView654"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="precio"
+            android:text="" />
+
+    </LinearLayout>
 
 </LinearLayout>

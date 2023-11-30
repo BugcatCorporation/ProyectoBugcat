@@ -99,6 +99,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mant_rvListProductos"
         android:layout_width="match_parent"
+        tools:listitem="@layout/list_productos"
         android:layout_height="wrap_content" />
 
 

@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btnlsArticulos"
+        android:title="Articulos"
+        android:icon="@drawable/bugcat01" />
+    <item
+        android:id="@+id/btnlsRopa"
+        android:title="Ropa"
+        android:icon="@drawable/bugcat01" />
+    <item
+        android:id="@+id/btnlsCarrito"
+        android:title="Carrito"
+        android:icon="@drawable/carrito" />
+    <item
+        android:id="@+id/btnlsOtros"
+        android:title="Otros"
+        android:icon="@drawable/bugcat01" />
+</menu>

@@ -13,19 +13,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectobugcat.SQLite.BDHelperProducto
-import com.example.proyectobugcat.SQLite.CustomAdapter
-import com.example.proyectobugcat.SQLite.ItemViewModel
+import com.example.proyectobugcat.Entidad.Producto
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MantenimientoRopa : AppCompatActivity() {
-    private lateinit var data: ArrayList<ItemViewModel>
-    private lateinit var adapter: CustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento_ropa)
-
-        data = ArrayList()
 
         val btnAtras: Button = findViewById(R.id.Lista_btnAtras)
         val btnCerrarSesion: Button = findViewById(R.id.mantr_btnCerrarSesion)
@@ -48,29 +43,27 @@ class MantenimientoRopa : AppCompatActivity() {
         }
 
         RopaRecycler.layoutManager = LinearLayoutManager(this)
+    }
 
-        val db = BDHelperProducto(this, null)
-        val cursor = db.ListarTodosRegistros()
+    private fun obtenerProductos() {
+        val productosList = mutableListOf<Producto>()
 
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                val nombre = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_NOMBRE))
-                val descripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_DESCRIPCION))
-                val precio = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_PRECIO))
-                val imagenPath = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_IMAGEN))
-                val imagenUri = Uri.parse(imagenPath)
+        val db = FirebaseFirestore.getInstance()
+        val productosRef = db.collection("Producto")
 
-                data.add(ItemViewModel(imagenUri.toString(), nombre, descripcion, precio))
+        productosRef.get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val imagen = document.getString("imagen") ?: ""
+                    val nombre = document.getString("nombre") ?: ""
+                    val precio = document.getDouble("precio") ?: 0.0
+                    val descripcion = document.getString("descripcion") ?: ""
 
+                    val producto = Producto(imagen, nombre, precio,descripcion)
+                    productosList.add(producto)
+                }
 
             }
-            cursor.close()
-        }
-
-        adapter = CustomAdapter(data)  // Inicializa el adaptador antes de utilizarlo
-        RopaRecycler.adapter = adapter
-
-        adapter.notifyDataSetChanged()  // Notifica que los datos han cambiado después de inicializar el adaptador
     }
 
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {

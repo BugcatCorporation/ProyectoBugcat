@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.proyectobugcat.SQLite.BDHelper
 
 class RegistroEmpleado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +22,7 @@ class RegistroEmpleado : AppCompatActivity() {
             val correo = inputCorreoEmpleado.text.toString()
             val contra = inputContra.text.toString()
 
-            if(validarCampos(correo, usuarioEmpleado ,contra)){
-                val db = BDHelper(this,null)
-                db.CrearRegistro(correo,usuarioEmpleado,contra)
-                Toast.makeText(this,"Se registro el Empleado correctamente",Toast.LENGTH_LONG)
-                inputEmpleado.text.clear()
-                inputCorreoEmpleado.text.clear()
-                inputContra.text.clear()
-            }
+
 
         }
 

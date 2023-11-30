@@ -27,7 +27,7 @@ class CarritoActivity : AppCompatActivity() {
             showModalConfirmExit(titleMsg,bodyMsg);
         }
         btnVolver.setOnClickListener{
-            val productosScreen = Intent(this,ProductosActivity::class.java)
+            val productosScreen = Intent(this,CatalogoActivity::class.java)
             startActivity(productosScreen)
         }
     }

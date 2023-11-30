@@ -12,40 +12,50 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectobugcat.SQLite.CustomAdapter
-import com.example.proyectobugcat.SQLite.ItemViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class ProductosActivity : AppCompatActivity() {
+class CatalogoActivity : AppCompatActivity() {
+    lateinit var navegacion: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_productos)
+        setContentView(R.layout.activity_catalogo)
 
+        navegacion = findViewById(R.id.bottomNavigation)
+        navegacion.setOnNavigationItemSelectedListener { item->
 
-        val btnCerrarSesion:Button = findViewById(R.id.btnCerrarSesion)
-        val btnCarrito:Button = findViewById(R.id.btnCarrito)
+            when(item.itemId){
+                R.id.btnlsArticulos -> {
+                    startActivity(Intent(this,RegistroActivity::class.java))
+                    return@setOnNavigationItemSelectedListener true
+                }
 
-        btnCarrito.setOnClickListener{
-            val cartScreen = Intent(this,CarritoActivity::class.java)
-            startActivity(cartScreen)
+                /*R.id.itemFragment2 -> {
+                    supportFragmentManager.commit {
+                        replace<CarritoFragment>(R.id.fragmentContainer)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@setOnNavigationItemSelectedListener true
+                }*/
+
+                R.id.btnlsCarrito -> {
+                    startActivity(Intent(this,CarritoActivity::class.java))
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+
+            false
         }
-        btnCerrarSesion.setOnClickListener{
-            val titleMsg:String = "Confirmacion"
-            val bodyMsg:String = "¿Estas seguro que desea salir de la App?"
 
-            showModalConfirmExit(titleMsg,bodyMsg);
-        }
-
-
-
-        // INICIO CARGAR PLATOS EN REPEATERVIEW
-        //Codigo para cargar productos en ReapeaterView
-        val productosRecycler : RecyclerView = findViewById(R.id.lista_productos)
-        productosRecycler.layoutManager = LinearLayoutManager(this)
-
-
-
+        /*val catalogoFragment = CatalogoFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, catalogoFragment)
+            .addToBackStack(null)
+            .commit()*/
     }
+
+
 
 
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {

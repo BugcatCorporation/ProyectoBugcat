@@ -48,7 +48,7 @@
             android:name=".RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductosActivity"
+            android:name=".CatalogoActivity"
             android:exported="false" />
         <activity
             android:name=".PantallaPrincipal"

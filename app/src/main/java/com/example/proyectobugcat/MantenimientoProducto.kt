@@ -1,77 +1,79 @@
 package com.example.proyectobugcat
 
+import CustomAdapterProducto
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectobugcat.SQLite.BDHelperProducto
-import com.example.proyectobugcat.SQLite.CustomAdapter
-import com.example.proyectobugcat.SQLite.ItemViewModel
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectobugcat.Entidad.Producto
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MantenimientoProducto : AppCompatActivity() {
 
-    private lateinit var data: ArrayList<ItemViewModel>
-    private lateinit var adapter: CustomAdapter
+    lateinit var ProductoRecycler: RecyclerView
+    lateinit var btnAtras: Button
+    lateinit var btnCerrarSesion: Button
+    lateinit var btnRegProducto: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento_producto)
 
-        data = ArrayList()
+        // Mueve estas inicializaciones aquí después de setContentView
+        ProductoRecycler = findViewById(R.id.mant_rvListProductos)
+        btnAtras = findViewById(R.id.List_btnAtras)
+        btnCerrarSesion = findViewById(R.id.mantp_btnCerrarSesion)
+        btnRegProducto = findViewById(R.id.mantp_btnRegistrar)
 
-        val btnAtras:Button = findViewById(R.id.List_btnAtras)
-        val btnCerrarSesion:Button = findViewById(R.id.mantp_btnCerrarSesion)
-        val productosRecycler: RecyclerView = findViewById(R.id.mant_rvListProductos)
-        val btnRegProductos:Button=findViewById(R.id.mantp_btnRegistrar)
-
-        btnRegProductos.setOnClickListener{
-            var MantProductosScreen = Intent(this, RegistroProducto::class.java)
-            startActivity(MantProductosScreen)
+        btnRegProducto.setOnClickListener {
+            var MantRegProductoScreen = Intent(this, RegistroProducto::class.java)
+            startActivity(MantRegProductoScreen)
         }
-        btnCerrarSesion.setOnClickListener{
-            val titleMsg:String = "Confirmacion"
-            val bodyMsg:String = "¿Estas seguro que desea cerrar sesion?"
-
-            showModalConfirmExit(titleMsg,bodyMsg);
+        btnCerrarSesion.setOnClickListener {
+            val titleMsg: String = "Confirmacion"
+            val bodyMsg: String = "¿Estás seguro que deseas cerrar sesión?"
+            showModalConfirmExit(titleMsg, bodyMsg)
         }
-        btnAtras.setOnClickListener{
-            val mantenimientoScreen = Intent(this,MantenimientoActivity::class.java)
+        btnAtras.setOnClickListener {
+            val mantenimientoScreen = Intent(this, MantenimientoActivity::class.java)
             startActivity(mantenimientoScreen)
         }
 
-        productosRecycler.layoutManager = LinearLayoutManager(this)
+        ProductoRecycler.layoutManager = LinearLayoutManager(this)
 
-        val db = BDHelperProducto(this, null)
-        val cursor = db.ListarTodosRegistros()
+        obtenerProductos()
+    }
 
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                val nombre = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_NOMBRE))
-                val descripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_DESCRIPCION))
-                val precio = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_PRECIO))
-                val imagenPath = cursor.getString(cursor.getColumnIndexOrThrow(BDHelperProducto.COLUMN_IMAGEN))
-                val imagenUri = Uri.parse(imagenPath)
+    private fun obtenerProductos() {
+        val productosList = mutableListOf<Producto>()
 
-                data.add(ItemViewModel(imagenUri.toString(), nombre, descripcion, precio))
+        val db = FirebaseFirestore.getInstance()
+        val productosRef = db.collection("Producto")
 
+        productosRef.get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val id = document.getString("id") ?: ""
+                    val imagen = document.getString("imagen") ?: ""
+                    val nombre = document.getString("nombre") ?: ""
+                    val precio = document.getDouble("precio") ?: 0.0
+                    val descripcion = document.getString("descripcion") ?: ""
 
+                    val producto = Producto(id, imagen, nombre, precio, descripcion)
+                    productosList.add(producto)
+                }
+
+                val adapter = CustomAdapterProducto(this, productosList)
+                ProductoRecycler.adapter = adapter
             }
-            cursor.close()
-        }
-
-        adapter = CustomAdapter(data)  // Inicializa el adaptador antes de utilizarlo
-        productosRecycler.adapter = adapter
-
-        adapter.notifyDataSetChanged()  // Notifica que los datos han cambiado después de inicializar el adaptador
     }
 
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {
@@ -81,22 +83,20 @@ class MantenimientoProducto : AppCompatActivity() {
         dialogConfirm.setContentView(R.layout.custom_modal_dialog)
         dialogConfirm.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        //Inicio
-
         val titulo: TextView = dialogConfirm.findViewById(R.id.modalTittle)
         val mensaje: TextView = dialogConfirm.findViewById(R.id.modalMessage)
-        val btnAceptar:Button = dialogConfirm.findViewById(R.id.btnModalAceptar)
-        val btnCancelar:Button = dialogConfirm.findViewById(R.id.btnModalCancelar)
+        val btnAceptar: Button = dialogConfirm.findViewById(R.id.btnModalAceptar)
+        val btnCancelar: Button = dialogConfirm.findViewById(R.id.btnModalCancelar)
 
-        titulo.text=titleMsg
-        mensaje.text=bodyMsg
+        titulo.text = titleMsg
+        mensaje.text = bodyMsg
 
-        btnAceptar.setOnClickListener{
-            val PantallaScreen = Intent(this,PantallaPrincipal::class.java)
+        btnAceptar.setOnClickListener {
+            val PantallaScreen = Intent(this, PantallaPrincipal::class.java)
             startActivity(PantallaScreen)
         }
-        btnCancelar.setOnClickListener{
-            Toast.makeText(this,"Accion cancelada", Toast.LENGTH_LONG).show()
+        btnCancelar.setOnClickListener {
+            Toast.makeText(this, "Acción cancelada", Toast.LENGTH_LONG).show()
             dialogConfirm.dismiss()
         }
         dialogConfirm.show()

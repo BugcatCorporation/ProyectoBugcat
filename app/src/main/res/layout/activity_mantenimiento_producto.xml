@@ -96,11 +96,11 @@
 
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/mant_rvListProductos"
         android:layout_width="match_parent"
         tools:listitem="@layout/list_productos"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </LinearLayout>

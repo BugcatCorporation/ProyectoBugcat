@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProyectoBugcat"
         tools:targetApi="31">
         <activity
+            android:name=".EditarProducto"
+            android:exported="false" />
+        <activity
             android:name=".RegistroRopa"
             android:exported="false" />
         <activity

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".RegistroProducto">
+    tools:context=".EditarProducto">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,20 +109,30 @@
             android:hint="precio"
             android:text="" />
 
+        <Button
+            android:id="@+id/btnActualizarP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Actualizar" />
+
+        <Button
+            android:id="@+id/btnRegresarP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Regresar" />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Eliminar" />
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnRegistrarP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Registrar" />
 
-    <Button
-        android:id="@+id/btnRegresarP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Regresar" />
+
 
 </LinearLayout>

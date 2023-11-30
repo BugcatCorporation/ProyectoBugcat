@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectobugcat.Entidad.Producto
 import com.google.firebase.firestore.FirebaseFirestore
 
+
 class MantenimientoProducto : AppCompatActivity() {
 
-    lateinit var ProductoRecycler: RecyclerView
+    lateinit var ProductoRecycler: ListView
     lateinit var btnAtras: Button
     lateinit var btnCerrarSesion: Button
     lateinit var btnRegProducto: Button
+    private lateinit var customAdapterProducto: CustomAdapterProducto
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +50,20 @@ class MantenimientoProducto : AppCompatActivity() {
             startActivity(mantenimientoScreen)
         }
 
-        ProductoRecycler.layoutManager = LinearLayoutManager(this)
+
+
+        customAdapterProducto = CustomAdapterProducto(this, ArrayList())
+
 
         obtenerProductos()
+
+        ProductoRecycler.setOnItemClickListener { _, _, position, _ ->
+            val intent = Intent (this, EditarProducto::class.java)
+            startActivity(intent)
+
+
     }
+}
 
     private fun obtenerProductos() {
         val productosList = mutableListOf<Producto>()
@@ -71,8 +84,8 @@ class MantenimientoProducto : AppCompatActivity() {
                     productosList.add(producto)
                 }
 
-                val adapter = CustomAdapterProducto(this, productosList)
-                ProductoRecycler.adapter = adapter
+                customAdapterProducto = CustomAdapterProducto(this, productosList)
+                ProductoRecycler.adapter = customAdapterProducto
             }
     }
 

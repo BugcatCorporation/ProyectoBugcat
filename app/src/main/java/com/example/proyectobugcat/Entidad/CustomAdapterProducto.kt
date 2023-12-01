@@ -9,7 +9,6 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.proyectobugcat.Entidad.Producto
-import com.example.proyectobugcat.R
 import com.squareup.picasso.Picasso
 
 class CustomAdapterProducto(private val context: Context, private var productos: List<Producto>) : BaseAdapter() {
@@ -27,7 +26,7 @@ class CustomAdapterProducto(private val context: Context, private var productos:
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_productos, parent, false)
+        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_bugcat, parent, false)
 
         val nombreTextView: TextView = view.findViewById(R.id.nombre_producto)
         val descripcionTextView: TextView = view.findViewById(R.id.descripcion_producto)

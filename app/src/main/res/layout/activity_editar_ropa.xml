@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".EditarRopa">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/txt_id_ropa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID:" />
+
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtNomR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="23dp"
+            android:hint="Nombre Producto"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imagen"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtImaR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="link de imagen"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtDesR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="Descripcion"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView654"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtPrecioR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="precio"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textView655"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Talla"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <EditText
+            android:id="@+id/txtRopaT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/input"
+            android:hint="ropa"
+            android:text="" />
+
+        <Button
+            android:id="@+id/btnActualizarP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Actualizar" />
+
+        <Button
+            android:id="@+id/btnRegresarP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Regresar" />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Eliminar" />
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

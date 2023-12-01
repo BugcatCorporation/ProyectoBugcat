@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProyectoBugcat"
         tools:targetApi="31">
         <activity
+            android:name=".EditarRopa"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

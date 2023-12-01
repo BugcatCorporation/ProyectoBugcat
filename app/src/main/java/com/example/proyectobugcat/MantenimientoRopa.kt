@@ -7,30 +7,37 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
+import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.material3.ListItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectobugcat.Entidad.CustomAdapterRopa
 import com.example.proyectobugcat.Entidad.Producto
+import com.example.proyectobugcat.Entidad.Ropa
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MantenimientoRopa : AppCompatActivity() {
 
+    private lateinit var ropaAdapter: CustomAdapterRopa
+    private lateinit var ListViewRopa: ListView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento_ropa)
 
+        ropaAdapter= CustomAdapterRopa( this, emptyList())
+        ListViewRopa = findViewById(R.id.mantr_rvListRopa)
+        ListViewRopa.adapter = ropaAdapter
+
         val btnAtras: Button = findViewById(R.id.Lista_btnAtras)
         val btnCerrarSesion: Button = findViewById(R.id.mantr_btnCerrarSesion)
-        val RopaRecycler: RecyclerView = findViewById(R.id.mantr_rvListRopa)
-        val btnRegRopa: Button =findViewById(R.id.mantr_btnRegistrar)
 
-        btnRegRopa.setOnClickListener{
-            var MantRopaScreen = Intent(this, RegistroRopa::class.java)
-            startActivity(MantRopaScreen)
-        }
+
         btnCerrarSesion.setOnClickListener{
             val titleMsg:String = "Confirmacion"
             val bodyMsg:String = "¿Estas seguro que desea cerrar sesion?"
@@ -42,28 +49,40 @@ class MantenimientoRopa : AppCompatActivity() {
             startActivity(mantenimientoScreen)
         }
 
-        RopaRecycler.layoutManager = LinearLayoutManager(this)
+        cargarRopaDesdeFirestore()
+
     }
 
-    private fun obtenerProductos() {
-        val productosList = mutableListOf<Producto>()
-
+    private fun cargarRopaDesdeFirestore() {
         val db = FirebaseFirestore.getInstance()
-        val productosRef = db.collection("Producto")
+        val ropaRef = db.collection("Ropa")
 
-        productosRef.get()
+        ropaRef.get()
             .addOnSuccessListener { result ->
+                val ropas = mutableListOf<Ropa>()
+
                 for (document in result) {
+                    val id = document.id
                     val imagen = document.getString("imagen") ?: ""
                     val nombre = document.getString("nombre") ?: ""
                     val precio = document.getDouble("precio") ?: 0.0
                     val descripcion = document.getString("descripcion") ?: ""
+                    val tallas = document.getString("tallas")?:""
 
-                    val producto = Producto(imagen, nombre, precio,descripcion)
-                    productosList.add(producto)
+                    val ropa = Ropa (id, imagen, nombre, descripcion,precio, tallas)
+
+                    ropas.add(ropa)
                 }
 
+                ropaAdapter.actualizarProductos(ropas)
             }
+            .addOnFailureListener { exception ->
+
+            }
+    }
+
+    fun registrar(view: View){
+        startActivity(Intent(this, RegistroRopa::class.java))
     }
 
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {

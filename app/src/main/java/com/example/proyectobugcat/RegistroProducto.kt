@@ -1,21 +1,16 @@
 package com.example.proyectobugcat
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectobugcat.Entidad.Producto
-import com.example.proyectobugcat.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 

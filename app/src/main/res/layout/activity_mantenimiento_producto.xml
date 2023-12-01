@@ -77,13 +77,14 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/mantp_btnRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Registrar un producto">
-        </Button>
+            android:onClick="registrar"
+            android:text="Registrar un producto"></Button>
         <Button
             android:id="@+id/List_btnAtras"
             android:layout_width="wrap_content"

@@ -132,7 +132,11 @@
 
     </LinearLayout>
 
-
+    <TextView
+        android:id="@+id/txt_id_producto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID:" />
 
 
 </LinearLayout>

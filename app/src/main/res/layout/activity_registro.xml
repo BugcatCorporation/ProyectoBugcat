@@ -118,11 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="Grabar" />
 
-            <Button
-                android:id="@+id/btnver"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ver" />
+
 
             <Button
                 android:id="@+id/btnVolver"

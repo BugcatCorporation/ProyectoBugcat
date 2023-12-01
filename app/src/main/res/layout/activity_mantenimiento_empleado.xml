@@ -84,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:onClick="registrar"
             android:text="Registrar un empleado">
         </Button>
         <Button
@@ -98,10 +99,12 @@
 
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mante_rvListEmpleado"
+    <ListView
+        android:id="@+id/mant_rvListEmpleado"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        tools:listitem="@layout/list_productos"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 
 </LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_empleado"
+            android:layout_width="115dp"
+            android:layout_height="105dp"></ImageView>
+
+        <LinearLayout
+            android:layout_width="227dp"
+            android:layout_height="97dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/img_empleado"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre_empleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:text="Nombre del Empleado"
+                android:textSize="25dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/cargo_empleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cargo del Empleado"
+                android:textSize="20dp"></TextView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

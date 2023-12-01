@@ -48,8 +48,8 @@ class CustomAdapterRopa(private val context: Context, private var ropa: List<Rop
 
          view.setOnClickListener {
              val intent = Intent(context, EditarRopa::class.java)
-             intent.putExtra("producto", ropa)
-             intent.putExtra("productoId", ropa.id) // Pasa la ID
+             intent.putExtra("ropa", ropa)
+             intent.putExtra("ropaId", ropa.id) // Pasa la ID
              context.startActivity(intent)
          }
 

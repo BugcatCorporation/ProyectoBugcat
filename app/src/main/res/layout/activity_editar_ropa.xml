@@ -8,6 +8,16 @@
     android:padding="16dp"
     tools:context=".EditarRopa">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="15dp"
+        android:textColor="@color/material_dynamic_primary70"
+        android:text="Modifica la Ropa BUGCAT"
+        android:textSize="30dp"
+        />
 
 
     <LinearLayout
@@ -29,7 +39,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre del producto"
+            android:text="Nombre de Ropa"
             android:layout_marginLeft="5dp"
             android:textSize="20dp"
             android:layout_marginBottom="5dp"/>
@@ -41,7 +51,7 @@
             android:ems="10"
             android:inputType="text"
             android:textSize="23dp"
-            android:hint="Nombre Producto"
+            android:hint="Nombre Ropa"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
@@ -128,7 +138,7 @@
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/txtRopaT"
+            android:id="@+id/txtTallasR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -141,31 +151,24 @@
             android:background="@drawable/input"
             android:hint="ropa"
             android:text="" />
-
-        <Button
-            android:id="@+id/btnActualizarP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Actualizar" />
-
-        <Button
-            android:id="@+id/btnRegresarP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Regresar" />
-
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Eliminar" />
-
-
-
     </LinearLayout>
+    <Button
+        android:id="@+id/btnActualizarR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar" />
+
+    <Button
+        android:id="@+id/btnRegresarR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regresar" />
+
+    <Button
+        android:id="@+id/btnEliminarR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar" />
 
 
 

@@ -25,14 +25,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MantenimientoRopa : AppCompatActivity() {
 
     private lateinit var ropaAdapter: CustomAdapterRopa
-    private lateinit var ListViewRopa: ListView
+    private lateinit var listViewRopa: ListView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento_ropa)
 
         ropaAdapter= CustomAdapterRopa( this, emptyList())
-        ListViewRopa = findViewById(R.id.mantr_rvListRopa)
-        ListViewRopa.adapter = ropaAdapter
+        listViewRopa = findViewById(R.id.mant_rvListRopa)
+        listViewRopa.adapter = ropaAdapter
 
         val btnAtras: Button = findViewById(R.id.Lista_btnAtras)
         val btnCerrarSesion: Button = findViewById(R.id.mantr_btnCerrarSesion)
@@ -69,7 +69,7 @@ class MantenimientoRopa : AppCompatActivity() {
                     val descripcion = document.getString("descripcion") ?: ""
                     val tallas = document.getString("tallas")?:""
 
-                    val ropa = Ropa (id, imagen, nombre, descripcion,precio, tallas)
+                    val ropa = Ropa (id, descripcion, imagen, nombre,precio ,tallas)
 
                     ropas.add(ropa)
                 }

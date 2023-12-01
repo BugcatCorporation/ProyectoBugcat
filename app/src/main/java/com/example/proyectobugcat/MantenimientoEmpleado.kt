@@ -7,27 +7,32 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.proyectobugcat.Entidad.Empleado
+import com.example.proyectobugcat.Entidad.Producto
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MantenimientoEmpleado : AppCompatActivity() {
+    private lateinit var empleadoAdapter: CustomAdapterEmpleado
+    private lateinit var listViewEmpleado: ListView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mantenimiento_empleado)
 
+        empleadoAdapter = CustomAdapterEmpleado(this, emptyList())
+        listViewEmpleado = findViewById(R.id.mant_rvListEmpleado)
+        listViewEmpleado.adapter = empleadoAdapter
+
         val btnAtras:Button = findViewById(R.id.mante_btnAtras)
         val btnCerrarSesion:Button = findViewById(R.id.mante_btnCerrarSesion)
-        val empleadoRecycler: RecyclerView = findViewById(R.id.mante_rvListEmpleado)
-        val btnRegEmpleado:Button=findViewById(R.id.mante_btnRegistrar)
 
-        btnRegEmpleado.setOnClickListener{
-            var MantProductosScreen = Intent(this, RegistroEmpleado::class.java)
-            startActivity(MantProductosScreen)
-        }
         btnCerrarSesion.setOnClickListener{
             val titleMsg:String = "Confirmacion"
             val bodyMsg:String = "¿Estas seguro que desea cerrar sesion?"
@@ -38,12 +43,33 @@ class MantenimientoEmpleado : AppCompatActivity() {
             val mantenimientoScreen = Intent(this,MantenimientoActivity::class.java)
             startActivity(mantenimientoScreen)
         }
+        cargarEmpleadosDesdeFirestore()
 
-        empleadoRecycler.layoutManager = LinearLayoutManager(this)
+    }
 
+    private fun cargarEmpleadosDesdeFirestore() {
+        val db = FirebaseFirestore.getInstance()
+        val empleadosRef = db.collection("Empleado")
 
+        empleadosRef.get()
+            .addOnSuccessListener { result ->
+                val empleados = mutableListOf<Empleado>()
+                for (document in result) {
+                    val id = document.id
+                    val imagen = document.getString("imagen") ?: ""
+                    val nombre = document.getString("nombre") ?: ""
+                    val cargo = document.getString("cargo") ?: ""
+                    val empleado = Empleado(id, imagen, nombre,cargo)
+                    empleados.add(empleado)
+                }
+                empleadoAdapter.actualizarEmpleados(empleados)
+            }
+            .addOnFailureListener { exception ->
 
-
+            }
+    }
+    fun registrar(view: View){
+        startActivity(Intent(this,RegistroEmpleado::class.java))
     }
 
     private fun showModalConfirmExit(titleMsg: String, bodyMsg: String) {

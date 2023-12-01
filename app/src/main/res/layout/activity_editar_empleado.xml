@@ -4,22 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroRopa"
-    android:padding="15dp"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".EditarEmpleado">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="15dp"
         android:textColor="@color/material_dynamic_primary70"
-        android:text="Registro de Ropas BUGCAT"
+        android:text="Modifica el Empleado BUGCAT"
         android:textSize="30dp"
         />
-
+    <TextView
+        android:id="@+id/txt_id_empleado"
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="ID:" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,19 +36,19 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre de Ropa"
+            android:text="Nombre del Empleado"
             android:layout_marginLeft="5dp"
             android:textSize="20dp"
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/txtNomRopa"
+            android:id="@+id/txtNomEmpleado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
             android:textSize="23dp"
-            android:hint="Nombre"
+            android:hint="Nombre Empleado"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
@@ -60,7 +65,7 @@
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/txtImaRopa"
+            android:id="@+id/txtImaEmp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -77,13 +82,13 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripcion"
+            android:text="Cargo"
             android:layout_marginLeft="5dp"
             android:textSize="20dp"
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/txtDesRopa"
+            android:id="@+id/txtCarEmp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -94,71 +99,31 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@drawable/input"
-            android:hint="Descripcion"
+            android:hint="Cargo"
             android:text="" />
-        <TextView
-            android:id="@+id/textView654"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Precio"
-            android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"/>
 
-        <EditText
-            android:id="@+id/txtPrecioRopa"
+        <Button
+            android:id="@+id/btnActualizarE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textSize="25dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/input"
-            android:hint="Precio"
-            android:text="" />
-        <TextView
-            android:id="@+id/textView65s4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tallas"
-            android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginTop="40dp"
+            android:text="Actualizar" />
 
-        <EditText
-            android:id="@+id/txtTallasRopa"
+        <Button
+            android:id="@+id/btnRegresarE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textSize="25dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/input"
-            android:hint="Ingresar tallas"
-            android:text="" />
+            android:layout_marginTop="10dp"
+            android:text="Regresar" />
+
+        <Button
+            android:id="@+id/btnEliminarE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Eliminar" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnGrabarRopa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Registrar" />
-
-    <Button
-        android:id="@+id/btnRegresarR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Regresar" />
-
 
 
 

@@ -71,7 +71,6 @@ class RegistroProducto : AppCompatActivity() {
                     startActivity(MantenimientoProductoScreen)
 
                 }
-
                 // Verifica y solicita permisos
                 val permission = Manifest.permission.READ_EXTERNAL_STORAGE
                 if (ContextCompat.checkSelfPermission(
@@ -81,8 +80,7 @@ class RegistroProducto : AppCompatActivity() {
                 ) {
                     ActivityCompat.requestPermissions(this, arrayOf(permission), 1)
                 }
-
-
             }
-
-        }}}
+        }
+    }
+}

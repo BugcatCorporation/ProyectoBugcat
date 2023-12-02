@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CatalogoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_primary70"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/background_rounded_corners"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/bugcat_foreground" />
+
+            <TextView
+                android:id="@+id/mant_txtusuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Bienvenido Usuario" />
+
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="Cerrar sesion"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:background="@drawable/background_rounded_corners"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:textColor="@color/material_dynamic_primary70"
+                android:background="@drawable/background_rounded_corners"
+                android:text="CAPOO BUGCAT STORE"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="Encuentre lo que desee :D" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/light_blue"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnArticulos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Articulos" />
+        <Button
+            android:id="@+id/btnRopa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ropa" />
+
+        <Button
+            android:id="@+id/btnCarrito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carrito" />
+
+        <Button
+            android:id="@+id/btnOtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Otros" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/light_blue"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/mant_rvListRopa"
+        android:layout_width="match_parent"
+        android:layout_height="409dp"
+        tools:listitem="@layout/list_productos"></ListView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:menu="@menu/menu" />
+
+
+</LinearLayout>

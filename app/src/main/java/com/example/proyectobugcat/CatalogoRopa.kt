@@ -1,30 +1,24 @@
 package com.example.proyectobugcat
 
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.View
-import android.view.Window
 import android.widget.Button
 import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyectobugcat.Entidad.CustomAdapterDetalle
 import com.example.proyectobugcat.Entidad.CustomAdapterRopa
-import com.example.proyectobugcat.Entidad.Producto
 import com.example.proyectobugcat.Entidad.Ropa
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 
-class CatalogoActivity : AppCompatActivity() {
+class CatalogoRopa : AppCompatActivity() {
     lateinit var navegacion: BottomNavigationView
+    lateinit var btnArticulos: Button
+    lateinit var btnCarrito: Button
+    lateinit var btnOtros: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_catalogo)
+        setContentView(R.layout.activity_catalogo_ropa)
 
         navegacion = findViewById(R.id.bottomNavigation)
         navegacion.setOnNavigationItemSelectedListener { item ->
@@ -44,23 +38,33 @@ class CatalogoActivity : AppCompatActivity() {
             false
         }
 
-        val btnRopa = findViewById<Button>(R.id.btnRopa)
-        btnRopa.setOnClickListener {
-            startActivity(Intent(this, CatalogoRopa::class.java))
+        navegacion = findViewById(R.id.bottomNavigation)
+        btnArticulos = findViewById(R.id.btnArticulos)
+        btnCarrito = findViewById(R.id.btnCarrito)
+        btnOtros = findViewById(R.id.btnOtros)
+
+        btnArticulos.setOnClickListener {
+            startActivity(Intent(this, CatalogoActivity::class.java))
         }
 
+        btnCarrito.setOnClickListener {
+            startActivity(Intent(this, CarritoActivity::class.java))
+        }
 
+        btnOtros.setOnClickListener {
+            // Agrega aquí el código para la acción del botón "Otros"
+        }
 
-        cargarProductosDesdeFirestore()
+        cargarRopaDesdeFirestore()
     }
 
-    private fun cargarProductosDesdeFirestore() {
+    private fun cargarRopaDesdeFirestore() {
         val db = FirebaseFirestore.getInstance()
-        val productosRef = db.collection("Producto")
+        val ropaRef = db.collection("Ropa")
 
-        productosRef.get()
+        ropaRef.get()
             .addOnSuccessListener { result ->
-                val productos = mutableListOf<Producto>()
+                val ropaList = mutableListOf<Ropa>()
 
                 for (document in result) {
                     val id = document.id
@@ -69,13 +73,13 @@ class CatalogoActivity : AppCompatActivity() {
                     val precio = document.getDouble("precio") ?: 0.0
                     val descripcion = document.getString("descripcion") ?: ""
 
-                    val producto = Producto(id, imagen, nombre, precio, descripcion)
-                    productos.add(producto)
+                    val ropa = Ropa(id, descripcion, imagen, nombre, precio)
+                    ropaList.add(ropa)
                 }
 
-                val listViewProductos = findViewById<ListView>(R.id.mant_rvListProductos)
-                val productoAdapter = CustomAdapterDetalle(this, productos)
-                listViewProductos.adapter = productoAdapter
+                val listViewRopa = findViewById<ListView>(R.id.mant_rvListRopa)
+                val ropaAdapter = CustomAdapterRopa(this, ropaList)
+                listViewRopa.adapter = ropaAdapter
             }
             .addOnFailureListener { exception ->
                 // Maneja errores si es necesario

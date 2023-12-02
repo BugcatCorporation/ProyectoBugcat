@@ -79,6 +79,12 @@ class EditarProducto : AppCompatActivity() {
             // Asegúrate de manejar los casos de éxito y error adecuadamente
             eliminarProducto(producto.id)
         }
+
+        btnRegresarP.setOnClickListener {
+            val intent = Intent(this, MantenimientoRopa::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     // Función para actualizar el producto en Firestore
@@ -116,8 +122,4 @@ class EditarProducto : AppCompatActivity() {
                 Toast.makeText(this, "Error al eliminar el producto", Toast.LENGTH_LONG).show()
             }
     }
-
-
-
-
 }

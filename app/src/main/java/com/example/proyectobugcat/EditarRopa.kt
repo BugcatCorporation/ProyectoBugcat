@@ -51,25 +51,7 @@ class EditarRopa : AppCompatActivity() {
             Toast.makeText(this, "Error al obtener datos de la ropa", Toast.LENGTH_SHORT).show()
             finish()
         }
-        btnActualizarR.setOnClickListener {
-            val nombre = txtNomRopa.text.toString()
-            val descripcion = txtDesRopa.text.toString()
-            val imagen = txtImaRopa.text.toString()
-            val precio = txtPrecioRopa.text.toString().toDoubleOrNull()
-            val tallas = txtTalla.text.toString()
 
-            if (nombre.isNotEmpty() && descripcion.isNotEmpty() && imagen.isNotEmpty() && precio != null&& tallas.isNotEmpty()) {
-                ropa.nombre = nombre
-                ropa.descripcion = descripcion
-                ropa.imagen = imagen
-                ropa.precio = precio
-                ropa.tallas = tallas
-                // Actualizar los datos en Firestore
-                actualizarRopa(ropa)
-            } else {
-                Toast.makeText(this, "Complete todos los campos correctamente", Toast.LENGTH_LONG).show()
-            }
-        }
         btnActualizarR.setOnClickListener {
             val nombre = txtNomRopa.text.toString()
             val descripcion = txtDesRopa.text.toString()
@@ -92,6 +74,13 @@ class EditarRopa : AppCompatActivity() {
         btnEliminar.setOnClickListener {
             eliminarRopa(ropa.id)
         }
+        btnRegresarR.setOnClickListener {
+            val intent = Intent(this, MantenimientoRopa::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
     }
     private fun actualizarRopa(ropa: Ropa) {
         val db = FirebaseFirestore.getInstance()

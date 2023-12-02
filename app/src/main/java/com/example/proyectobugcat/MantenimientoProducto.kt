@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectobugcat.Entidad.Producto
 import com.google.firebase.firestore.FirebaseFirestore
 
-class MantenimientoProducto : AppCompatActivity() {
+class  MantenimientoProducto : AppCompatActivity() {
 
     private lateinit var productoAdapter: CustomAdapterProducto
     private lateinit var listViewProductos: ListView

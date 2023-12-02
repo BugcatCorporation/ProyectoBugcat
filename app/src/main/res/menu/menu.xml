@@ -11,8 +11,4 @@
         android:id="@+id/btnlsCarrito"
         android:title="Carrito"
         android:icon="@drawable/carrito" />
-    <item
-        android:id="@+id/btnlsOtros"
-        android:title="Otros"
-        android:icon="@drawable/bugcat01" />
 </menu>

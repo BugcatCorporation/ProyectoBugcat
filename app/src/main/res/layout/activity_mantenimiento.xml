@@ -96,9 +96,10 @@
 
                     <ImageView
                         android:id="@+id/mante_imgProducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@mipmap/bugcat" />
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/producto" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -130,9 +131,9 @@
 
                     <ImageView
                         android:id="@+id/mante_imgCategoria"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@mipmap/bugcat" />
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/bugcatropa" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -171,9 +172,9 @@
 
                     <ImageView
                         android:id="@+id/mante_imgEmpleado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@mipmap/bugcat" />
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/empleado" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -187,41 +188,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Ver listado" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/mante_imgOtros"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@mipmap/bugcat" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Otros" />
-
-                    <Button
-                        android:id="@+id/mante_btnListadoOtros"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Ver listado" />
-
 
                 </LinearLayout>
 

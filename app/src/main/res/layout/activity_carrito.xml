@@ -28,9 +28,11 @@
     </pl.droidsonroids.gif.GifImageView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
+        android:id="@+id/recyclerview_carrito"
+        android:layout_width="372dp"
+        android:layout_height="390dp"
         android:layout_margin="15dp"
-        android:layout_height="wrap_content" />
+        tools:listitem="@layout/item_carrito" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -12,6 +12,7 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyectobugcat.Entidad.CustomAdapterDetalle
 import com.example.proyectobugcat.Entidad.CustomAdapterRopa
 import com.example.proyectobugcat.Entidad.Producto
 import com.example.proyectobugcat.Entidad.Ropa
@@ -66,13 +67,11 @@ class CatalogoActivity : AppCompatActivity() {
                 }
 
                 val listViewProductos = findViewById<ListView>(R.id.mant_rvListProductos)
-                val productoAdapter = CustomAdapterProducto(this, productos)
+                val productoAdapter = CustomAdapterDetalle(this, productos)
                 listViewProductos.adapter = productoAdapter
             }
             .addOnFailureListener { exception ->
                 // Maneja errores si es necesario
             }
     }
-
-
 }

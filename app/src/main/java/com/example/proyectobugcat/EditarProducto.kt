@@ -81,17 +81,14 @@ class EditarProducto : AppCompatActivity() {
         }
 
         btnRegresarP.setOnClickListener {
-            val intent = Intent(this, MantenimientoRopa::class.java)
+            val intent = Intent(this, MantenimientoProducto::class.java)
             startActivity(intent)
             finish()
         }
     }
 
-    // Función para actualizar el producto en Firestore
+
     private fun actualizarProducto(producto: Producto) {
-        // Asegúrate de manejar los casos de éxito y error adecuadamente
-        // En este punto, producto contiene los nuevos valores que deseas actualizar en Firestore
-        // Utiliza el objeto 'db' para actualizar el documento correspondiente en Firestore
 
         val db = FirebaseFirestore.getInstance()
         db.collection("Producto").document(producto.id)

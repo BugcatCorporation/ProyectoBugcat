@@ -1,6 +1,7 @@
 package com.example.proyectobugcat
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +42,13 @@ class CustomAdapterProducto(private val context: Context, private var productos:
         // Puedes mantener el código de Picasso para cargar la imagen
         Picasso.get().load(producto.imagen).into(imagenImageView)
 
+        view.setOnClickListener {
+            val intent = Intent(context, EditarProducto::class.java)
+            intent.putExtra("producto", producto)
+            intent.putExtra("productoId", producto.id)
+            context.startActivity(intent)
+        }
+
         return view
     }
 
@@ -49,3 +57,4 @@ class CustomAdapterProducto(private val context: Context, private var productos:
         notifyDataSetChanged()
     }
 }
+

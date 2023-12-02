@@ -6,20 +6,27 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectobugcat.Entidad.Carrito
 import com.example.proyectobugcat.Entidad.CustomAdapterCarrito
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CarritoActivity : AppCompatActivity() {
 
     // Instancia de Firestore
     private val db = FirebaseFirestore.getInstance()
+    private var montoTotal: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +43,7 @@ class CarritoActivity : AppCompatActivity() {
             // Lógica personalizada al hacer clic en "Aceptar"
             val onAccept = {
                 // Mostrar Toast
+                realizarCompra()
                 Toast.makeText(this, "Compra Realizada", Toast.LENGTH_SHORT).show()
 
                 // Eliminar el elemento de la lista
@@ -117,6 +125,13 @@ class CarritoActivity : AppCompatActivity() {
                     listaCarrito.add(carrito)
                 }
 
+                // Calcular el monto total
+                montoTotal = listaCarrito.sumByDouble { it.precio }
+
+                // Mostrar el monto total en el TextView correspondiente
+                val txtMontoTotal: TextView = findViewById(R.id.txt_monto_total)
+                txtMontoTotal.text = "Monto Total: $montoTotal"
+
                 // Crear el adaptador y establecerlo en el RecyclerView
                 val carritoAdapter = CustomAdapterCarrito(this, listaCarrito)
                 val recyclerView: RecyclerView = findViewById(R.id.recyclerview_carrito)
@@ -127,6 +142,8 @@ class CarritoActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al obtener datos de Firestore", Toast.LENGTH_SHORT).show()
             }
     }
+
+
 
     private fun borrarTodoCarrito() {
         // Referencia a la colección "carrito" en Firestore
@@ -174,15 +191,34 @@ class CarritoActivity : AppCompatActivity() {
             }
     }
 
+    private fun realizarCompra() {
+        // Obtener el correo del usuario actual
+        val usuario = FirebaseAuth.getInstance().currentUser
+        val correoUsuario = usuario?.email ?: ""
 
+        // Obtener la fecha actual
+        val fechaActual = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
 
+        // Crear un mapa con los datos para la colección "ventas"
+        val datosVenta = hashMapOf(
+            "correo" to correoUsuario,
+            "monto" to montoTotal,
+            "fecha" to fechaActual
+        )
 
+        // Agregar un documento a la colección "ventas" con los datos
+        db.collection("venta")
+            .add(datosVenta)
+            .addOnSuccessListener { documentReference ->
+                // Manejar el éxito de la operación si es necesario
+                Log.d("TAG", "Documento agregado con ID: ${documentReference.id}")
 
-
-
-
-
-
-
+                // Luego, puedes limpiar el carrito o realizar otras acciones necesarias
+            }
+            .addOnFailureListener { exception ->
+                // Manejar errores si es necesario
+                Log.w("TAG", "Error al agregar documento", exception)
+            }
+    }
 
 }

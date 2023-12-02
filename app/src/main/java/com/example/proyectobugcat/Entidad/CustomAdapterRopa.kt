@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.proyectobugcat.DetalleRopaActivity
 import com.example.proyectobugcat.EditarProducto
 import com.example.proyectobugcat.EditarRopa
 import com.example.proyectobugcat.R
@@ -48,7 +47,7 @@ class CustomAdapterRopa(private val context: Context, private var ropa: List<Rop
          Picasso.get().load(ropa.imagen).into(imagenImageView)
 
          view.setOnClickListener {
-             val intent = Intent(context, DetalleRopaActivity::class.java)
+             val intent = Intent(context, EditarRopa::class.java)
              intent.putExtra("ropa", ropa)
              intent.putExtra("ropaId", ropa.id) // Pasa la ID
              context.startActivity(intent)

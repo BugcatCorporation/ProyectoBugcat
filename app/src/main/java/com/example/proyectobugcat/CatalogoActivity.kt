@@ -31,7 +31,7 @@ class CatalogoActivity : AppCompatActivity() {
 
             when (item.itemId) {
                 R.id.btnlsArticulos -> {
-                    startActivity(Intent(this, CatalogoActivity::class.java))
+                    startActivity(Intent(this, RegistroActivity::class.java))
                     return@setOnNavigationItemSelectedListener true
                 }
 
@@ -43,13 +43,6 @@ class CatalogoActivity : AppCompatActivity() {
 
             false
         }
-
-        val btnRopa = findViewById<Button>(R.id.btnRopa)
-        btnRopa.setOnClickListener {
-            startActivity(Intent(this, CatalogoRopa::class.java))
-        }
-
-
 
         cargarProductosDesdeFirestore()
     }
